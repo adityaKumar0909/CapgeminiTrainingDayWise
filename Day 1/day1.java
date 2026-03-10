@@ -8,6 +8,7 @@ class day1{
         rollNumber = sc.nextInt();
         System.out.println("Enter name:");
         name = sc.nextLine();
+        System.out.print("changes");
         System.out.println("Hello "+name+" , you roll no is :"+rollNumber);
 
     }
