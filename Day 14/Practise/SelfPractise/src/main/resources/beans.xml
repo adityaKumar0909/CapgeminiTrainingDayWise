@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean Configuration -->
+    <bean id="food" class = "com.ak.Food"/>
+
+    <!-- Chef Bean -->
+    <bean id="chef" class="com.ak.Chef">
+        <property name="food" ref="food"/>
+    </bean>
+
+    <!-- Restaurant Bean -->
+    <bean id="restaurant" class="com.ak.Restro">
+
+        <!-- Setter Injection -->
+        <property name="chef" ref="chef"/>
+
+    </bean>
+
+</beans>
