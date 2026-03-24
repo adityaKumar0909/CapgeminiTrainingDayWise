@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 import java.sql.Date;
 
@@ -11,6 +13,8 @@ import java.sql.Date;
 public class Training {
 
     @Id
+    @NotNull(message = "Id cannot be null")
+    @Min(value=1,message = "Id must be greater than 0")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     int id;
 

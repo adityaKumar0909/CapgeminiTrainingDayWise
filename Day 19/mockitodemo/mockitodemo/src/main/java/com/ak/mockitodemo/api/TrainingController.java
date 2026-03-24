@@ -2,6 +2,7 @@ package com.ak.mockitodemo.api;
 
 import com.ak.mockitodemo.model.Training;
 import com.ak.mockitodemo.service.TrainingService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +19,10 @@ public class TrainingController {
         this.trainingService = trainingService;
     }
 
-//    @PostMapping("/add")
-//    public Training addTraining(Training training) {
-//        return trainingService.addTraining(training);
-//    }
+    @PostMapping("/add")
+    public Training addTraining(@RequestBody @Valid Training training) {
+        return trainingService.addTraining(training);
+    }
 //
 //    @PostMapping("/update")
 //    public Training updateTraining(Training training) {
