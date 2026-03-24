@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/CabController (snapshot).java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/CabController (snapshot).java" />
+              <option name="originalContent" value="package com.ak.cabService.controller;&#10;&#10;import com.ak.cabService.entity.Cab;&#10;import com.ak.cabService.exception.CabNotFoundException;&#10;import com.ak.cabService.service.CabImplementation;&#10;import org.springframework.http.HttpStatus;&#10;import org.springframework.http.ResponseEntity;&#10;import org.springframework.web.bind.annotation.*;&#10;&#10;@RestController&#10;@RequestMapping(&quot;/cab&quot;)&#10;public class CabController {&#10;&#10;    CabImplementation cabImplementation;&#10;&#10;    public CabController(CabImplementation cabImplementation){&#10;        this.cabImplementation = cabImplementation;&#10;    }&#10;&#10;    @PostMapping&#10;    public void addNewCab(@RequestBody Cab cab){&#10;        cabImplementation.addCab(cab);&#10;    }&#10;&#10;    @GetMapping(&quot;/{id}&quot;)&#10;    public Cab getCabById(@PathVariable Long id){&#10;        return cabImplementation.getCabById(Math.toIntExact(id));&#10;    }&#10;&#10;    @GetMapping(&quot;/isActive/{id}&quot;)&#10;    public String isActiveCabById(@PathVariable Long id){&#10;        return cabImplementation.getStatus(Math.toIntExact(id));&#10;    }&#10;}&#10;" />
+              <option name="updatedContent" value="package com.ak.cabService.controller;&#10;&#10;import com.ak.cabService.entity.Cab;&#10;import com.ak.cabService.service.CabImplementation;&#10;import org.springframework.http.HttpStatus;&#10;import org.springframework.http.ResponseEntity;&#10;import org.springframework.web.bind.annotation.*;&#10;&#10;@RestController&#10;@RequestMapping(&quot;/cab&quot;)&#10;public class CabController {&#10;&#10;    CabImplementation cabImplementation;&#10;&#10;    public CabController(CabImplementation cabImplementation){&#10;        this.cabImplementation = cabImplementation;&#10;    }&#10;&#10;    @PostMapping&#10;    public void addNewCab(@RequestBody Cab cab){&#10;        cabImplementation.addCab(cab);&#10;    }&#10;&#10;    @GetMapping(&quot;/{id}&quot;)&#10;    public Cab getCabById(@PathVariable Long id){&#10;        return cabImplementation.getCabById(Math.toIntExact(id));&#10;    }&#10;&#10;    @GetMapping(&quot;/isActive/{id}&quot;)&#10;    public String isActiveCabById(@PathVariable Long id){&#10;        return cabImplementation.getStatus(Math.toIntExact(id));&#10;    }&#10;&#10;    @ExceptionHandler(CabNotFoundException.class)&#10;    public ResponseEntity&lt;ErrorResponse&gt; handleCabNotFound(CabNotFoundException e) {&#10;        ErrorResponse error = new ErrorResponse(404, e.getMessage());&#10;        return new ResponseEntity&lt;&gt;(error, HttpStatus.NOT_FOUND);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
